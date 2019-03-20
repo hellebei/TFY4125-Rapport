@@ -15,15 +15,7 @@ def plot_veloc_graph(eksp):
         time = item[2]
         v.append(veloc)
         t.append(time)
-
-    print(len(t))
-    print(len(v))
-    plt.figure()
-    plt.plot(t,v)  # plotting the velocity vs. time: v(t)
-    plt.xlabel(r'$tid t [s]$')
-    plt.ylabel(r'$hastighet v [m/s]$')
-    plt.grid()
-    plt.show()
+    return t, v
 
 def plot_dist_graph(eksp):
     
@@ -35,22 +27,35 @@ def plot_dist_graph(eksp):
         time = item[2]
         s.append(strekn)
         t.append(time)
+    return t, s
 
-    print(len(t))
-    print(len(s))
-    plt.figure()
-    plt.plot(t,s)  # plotting the dist vs. time: s(t)
+def plot_all_vel():
+    plt.gca().set_color_cycle(['red', 'green', 'blue'])
+    t, vs = plot_veloc_graph(sirkelfrag)
+    t, vr = plot_veloc_graph(rettlinje)
+    t, vsy = plot_veloc_graph(sykloide)
+    plt.plot(t, vs, t, vr, t, vsy)
+    plt.xlabel(r'$tid t [s]$')
+    plt.ylabel(r'$hastighet v [m/s]$')
+    plt.legend(['sirkelfrag', 'rett linje', 'sykloide'], loc='upper left')
+    plt.grid()
+    plt.show()
+
+def plot_all_dist():
+    plt.gca().set_color_cycle(['red', 'green', 'blue'])
+    t, ss = plot_dist_graph(sirkelfrag)
+    t, sr = plot_dist_graph(rettlinje)
+    t, ssy = plot_dist_graph(sykloide)
+    plt.plot(t, ss, t, sr, t, ssy)
     plt.xlabel(r'$tid t [s]$')
     plt.ylabel(r'$strekning s [m]$')
     plt.grid()
     plt.show()
 
-
-
-
-plot_veloc_graph(sirkelfrag)
+#plot_veloc_graph(sirkelfrag)
 #plot_veloc_graph(rettlinje)
 #plot_veloc_graph(sykloide)
 #plot_dist_graph(sirkelfrag)
 #plot_dist_graph(rettlinje)
 #plot_dist_graph(sykloide)
+plot_all_dist()
