@@ -35,13 +35,17 @@ def get_result(eksperiment):
         #akselerasjon langs planet 
         alpha = takes[i][3] #hentes som 5. verdien fra sykloide
         a = g * np.sin(alpha)
+        tt = 0
         if i==0:
-            detailed_result_take1.append([s[0], v[0]])
+            detailed_result_take1.append([s[0], v[0], tt])
         for n in range(0, nsteps-1): 
-            s[n+1] = s[n] + v[n] * dt 
-            v[n+1] = v[n] + a * dt 
+            s_rn = s[n] + v[n] * dt 
+            s[n+1] = s_rn
+            v_nr = v[n] + a * dt 
+            v[n+1] = v_nr
             if i == 0:
-                detailed_result_take1.append([s[n+1], v[n+1]])
+                tt = tt + dt
+                detailed_result_take1.append([s_rn, v_nr, tt])
 
         result.append([s[-1], v[-1]])
     return result, detailed_result_take1
@@ -50,12 +54,13 @@ def print_res(result):
     for res in result: 
         print("Strekning: ", res[0], "\t Fart: ",res[1])
 
-print("*******************************\n        SIRKELFRAGMENT       \n*******************************")
-res_sf = get_result(sirkelfrag)[0]
-print_res(res_sf)
-print("*******************************\n          RETTLINJE         \n******************************")
-res_rl = get_result(rettlinje)[0]
-print_res(res_rl)
-print("*******************************\n          SYKLOIDE         \n******************************")
-res_syk = get_result(sykloide)[0]
-print_res(res_syk)
+def test_code(): 
+    print("*******************************\n        SIRKELFRAGMENT       \n*******************************")
+    res_sf = get_result(sirkelfrag)[0]
+    print_res(res_sf)
+    print("*******************************\n          RETTLINJE         \n******************************")
+    res_rl = get_result(rettlinje)[0]
+    print_res(res_rl)
+    print("*******************************\n          SYKLOIDE         \n******************************")
+    res_syk = get_result(sykloide)[0]
+    print_res(res_syk)
