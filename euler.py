@@ -1,10 +1,15 @@
 
 import numpy as np
 import sirkelfrag
+import rettlinje
+import sykloide
+
+def get_startpos(eksperiment):
+    
 
 
-def result_sirkelfrag(): 
-    takes = sirkelfrag.main()
+def result_sirkelfrag(eksperiment): 
+    takes = eksperiment.main()
     result = []
     startpos = [2.592867889E-2, 3.849361079E-2, 2.649781596E-2, 2.168204072E-2, 3.534133048E-2, 3.433439566E-2, 3.774586870E-2, 2.553466091E-2, 2.465906542E-2, 2.606001821E-2]
     for i in range (0,9):
