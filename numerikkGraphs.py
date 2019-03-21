@@ -59,3 +59,4 @@ def plot_all_dist():
 #plot_dist_graph(rettlinje)
 #plot_dist_graph(sykloide)
 plot_all_dist()
+plot_all_vel()
