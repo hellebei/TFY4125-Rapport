@@ -7,6 +7,7 @@
 import numpy as np 
 from matplotlib import pyplot as plt
 
+
 f = open("skrplan/take8.txt" ,"r")
 lines = f.readlines()
 t = []
@@ -39,7 +40,7 @@ for i in range(2, len(x) - 2):
 #TID MOT POSISJON
 
 #plt.plot(t, s)
-plt.plot(t, x)
+#plt.plot(t, x)
 plt.xlabel(r'$tid t [s]$')
 plt.ylabel(r'$posisjon x [m]$')
 plt.title("Skråplan")
@@ -55,3 +56,4 @@ plt.show()
 #plt.plot(t, x, t, y, x, y)
 #plt.grid()
 #plt.show()
+

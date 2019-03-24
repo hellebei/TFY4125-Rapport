@@ -35,5 +35,5 @@ def trvalues(p,x):
 	R=(1.0+dydx**2)**1.5/d2ydx2
 	return [y,dydx,d2ydx2,alpha,R]
 
-#p = iptrack("sykloide/take1.txt" )
-#print(trvalues(p, 15))
+p = iptrack("sykloide/take1.txt" )
+print(trvalues(p, 15))
