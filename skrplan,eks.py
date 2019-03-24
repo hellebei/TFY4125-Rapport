@@ -39,19 +39,19 @@ for i in range(2, len(x) - 2):
 #TID MOT POSISJON
 
 #plt.plot(t, s)
-#plt.plot(t, x)
-#plt.xlabel(r'$tid t [s]$')
-#plt.ylabel(r'$posisjon x [m]$')
-#plt.title("Skråplan")
-#plt.plot(t, x, t, y, x, y)
-#plt.grid()
-#plt.show()
-
-#TID MOR FART 
-plt.plot(t[:-4], v)
+plt.plot(t, x)
 plt.xlabel(r'$tid t [s]$')
-plt.ylabel(r'$fart v [m/s]$')
+plt.ylabel(r'$posisjon x [m]$')
 plt.title("Skråplan")
 #plt.plot(t, x, t, y, x, y)
 plt.grid()
 plt.show()
+
+#TID MOR FART 
+#plt.plot(t[:-4], v)
+#plt.xlabel(r'$tid t [s]$')
+#plt.ylabel(r'$fart v [m/s]$')
+#plt.title("Skråplan")
+#plt.plot(t, x, t, y, x, y)
+#plt.grid()
+#plt.show()

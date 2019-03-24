@@ -7,7 +7,7 @@
 import numpy as np
 from matplotlib import pyplot as plt
 
-f = open("sykloide/take1.txt" ,"r")
+f = open("sykloide/take2.txt" ,"r")
 lines = f.readlines()
 t = []
 x = []
@@ -36,19 +36,19 @@ for i in range(2, len(x) - 2):
 
 #TID MOT POSISJON
 #plt.plot(t, s)
-#plt.plot(t, x)
-#plt.xlabel(r'$tid t [s]$')
-#plt.ylabel(r'$posisjon x [m]$')
-#plt.title("Sykloide")
-#plt.plot(t, x, t, y, x, y)
-#plt.grid()
-#plt.show()
-
-#TID MOR FART 
-plt.plot(t[:-4], v)
-plt.xlabel(r'$tid t [s]$')
-plt.ylabel(r'$fart v [m/s]$')
+plt.plot(t, x)
+plt.xlabel('tid t [s]')
+plt.ylabel('posisjon x [m]')
 plt.title("Sykloide")
 #plt.plot(t, x, t, y, x, y)
 plt.grid()
 plt.show()
+
+#TID MOR FART 
+#plt.plot(t[:-4], v)
+#plt.xlabel('tid t [s]')
+#plt.ylabel('fart v [m/s]')
+#plt.title("Sykloide")
+#plt.plot(t, x, t, y, x, y)
+#plt.grid()
+#plt.show()
