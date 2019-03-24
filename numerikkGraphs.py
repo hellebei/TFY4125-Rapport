@@ -30,25 +30,24 @@ def plot_dist_graph(eksp):
     return t, s
 
 def plot_all_vel():
-    plt.gca().set_color_cycle(['red', 'green', 'blue'])
     t, vs = plot_veloc_graph(sirkelfrag)
     t, vr = plot_veloc_graph(rettlinje)
     t, vsy = plot_veloc_graph(sykloide)
     plt.plot(t, vs, t, vr, t, vsy)
-    plt.xlabel(r'$tid t [s]$')
-    plt.ylabel(r'$hastighet v [m/s]$')
-    plt.legend(['sirkelfrag', 'rett linje', 'sykloide'], loc='upper left')
+    plt.xlabel('tid t [s]')
+    plt.ylabel('hastighet v  [m/s]')
+    plt.legend(['sirkelfragment', 'rett linje', 'sykloide'], loc='upper left')
     plt.grid()
     plt.show()
 
 def plot_all_dist():
-    plt.gca().set_color_cycle(['red', 'green', 'blue'])
     t, ss = plot_dist_graph(sirkelfrag)
     t, sr = plot_dist_graph(rettlinje)
     t, ssy = plot_dist_graph(sykloide)
     plt.plot(t, ss, t, sr, t, ssy)
-    plt.xlabel(r'$tid t [s]$')
-    plt.ylabel(r'$strekning s [m]$')
+    plt.xlabel('tid t [s]')
+    plt.ylabel('strekning s [m]')
+    plt.legend(['sirkelfragment', 'rett linje', 'sykloide'], loc='upper left')
     plt.grid()
     plt.show()
 
