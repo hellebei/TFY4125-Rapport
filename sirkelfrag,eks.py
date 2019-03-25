@@ -96,7 +96,7 @@ def sykloide(filnavn):
 
     for i, elem in enumerate(x): 
         s.append(np.sqrt(elem**2 + y[i]**2))
-        print(s)
+        #print(s)
 
     # v = (x1-x0)/delta(t)
     for i in range(2, len(x) - 2): 

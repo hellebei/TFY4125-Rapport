@@ -22,7 +22,7 @@ import numpy as np
 
 def iptrack(filename):
 	data=np.loadtxt(filename,skiprows=2)
-	return np.polyfit(data[:,1],data[:,2],15)
+	return np.polyfit(data[:,1],data[:,2],2)
 
 
 def trvalues(p,x):
@@ -36,4 +36,4 @@ def trvalues(p,x):
 	return [y,dydx,d2ydx2,alpha,R]
 
 p = iptrack("sykloide/take1.txt" )
-print(trvalues(p, 15))
+print(trvalues(p, 2))
