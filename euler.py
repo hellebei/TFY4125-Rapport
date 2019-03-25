@@ -36,12 +36,13 @@ def get_result(eksperiment):
         alpha = takes[i][3] #hentes som 5. verdien fra sykloide
         a = g * np.sin(alpha)
         tt = 0
+        k = 2/5
         if i==0:
             detailed_result_take1.append([s[0], v[0], tt])
         for n in range(0, nsteps-1): 
             s_rn = s[n] + v[n] * dt 
             s[n+1] = s_rn
-            v_nr = v[n] + a * dt 
+            v_nr = v[n] + (a /(1+k))* dt
             v[n+1] = v_nr
             if i == 0:
                 tt = tt + dt
