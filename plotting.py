@@ -123,8 +123,9 @@ def main():
 	plt.xlabel("$t$ [s]")
 	plt.ylabel("$v$ [m/s]")
 	plt.title("Banefart v[m/s] for kule")
+	plt.grid()
 	plt.plot(t_num, v_num_sir, t_num, v_num_skr, t_num, v_num_syk)
-	plt.legend(['sirkelfragment', 'rett linje', 'sykloide'], loc='upper left')
+	plt.legend(['Sirkelfragment', 'Skråplan', 'Sykloide'], loc='upper left')
 	plt.figure()
 	plt.show()
 
@@ -132,17 +133,19 @@ def main():
 	plt.xlabel("$t$ [s]")
 	plt.ylabel("$s$ [m]")
 	plt.title("Posisjon x[m] for kule")
+	plt.grid()
 	plt.plot(t_num, arc_length(x_num_sir, y_num_sir), t_num, arc_length(x_num_skr, y_num_skr), t_num, arc_length(x_num_syk, y_num_syk))
-	plt.legend(['sirkelfragment', 'rett linje', 'sykloide'], loc='upper left')
+	plt.legend(['Sirkelfragment', 'Skråplan', 'Sykloide'], loc='upper left')
 	plt.show()
 
-
+"""
 	# plot friksjon
 	plt.xlabel("$x$ [m]")
 	plt.ylabel("$f$ [N]")
 	plt.title("friksjon f[N] for kulen")
+	plt.grid()
 	plt.plot(x_num_sir, frik_sir, x_num_sir, frik_skr ,x_num_sir, frik_syk)
-	plt.legend(['sirkelfragment', 'rett linje', 'sykloide'], loc='upper left')
+	plt.legend(['Sirkelfragment', 'Skråplan', 'Sykloide'], loc='upper left')
 	plt.show()
-
+"""
 main()
