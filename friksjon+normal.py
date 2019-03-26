@@ -9,14 +9,6 @@ import numpy.polynomial.polynomial as poly
 #from scipy.optimize import curve_fit
 import iptrack, trvalues
 
-
-
-
-
-
-
-
-
 def friksjon(filename, x0): 
 	#Konstanter
 	x_0 = x0
@@ -95,7 +87,7 @@ plt.figure()
 plt.plot(result, n_kraft) 
 plt.plot(result1, n_kraft1) 
 plt.plot(result2, n_kraft2)  # plotting the velocity vs. time: v(t)
-plt.title("Normalkraft")
+plt.title("Normalkraft N[N]")
 plt.legend(['Sirkelfrag', 'Sykloide', 'Skråplan'], loc='upper left')
 plt.xlabel('posisjon x[cm]')
 plt.ylabel('normalkraft N[N]')

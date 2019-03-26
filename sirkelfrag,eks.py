@@ -37,6 +37,7 @@ def sirkel(filnavn):
         #v.append(np.divide((x[i + 1]-x[i-1]),(t[i + 1]-t[i-1])))
         v.append((1*x[i-2]-8*x[i-1]+0*x[i+0]+8*x[i+1]-1*x[i+2])/(12*1.0*(t[i+1]-t[i])**1))
         #print(v)
+    print(sum(v)/len(v))
 
     return t,x,v
 
@@ -53,24 +54,25 @@ def skrplan(filnavn):
 
     for i in range(2, len(lines)-1):
         t.append(float(lines[i].split('\t')[0]))
-    print(t)
+    #print(t)
     for i in range(2, len(lines)-1):
         x.append(float(lines[i].split('\t')[1]))
-    print(x)
+    #print(x)
     for i in range(2, len(lines)-1):
         y.append(float(lines[i].split('\t')[2]))
-    print(y)
+    #print(y)
 
     for i, elem in enumerate(x): 
         s.append(np.sqrt(x[i]**2 + y[i]**2))
-        print(s)
+        #print(s)
 
 
     # v = (x1-x0)/delta(t)
     for i in range(2, len(x) - 2): 
         #v.append(np.divide((x[i + 1]-x[i-1]),(t[i + 1]-t[i-1])))
         v.append((1*x[i-2]-8*x[i-1]+0*x[i+0]+8*x[i+1]-1*x[i+2])/(12*1.0*(t[i+1]-t[i])**1))
-        print(v)
+        #print(v)
+    print(sum(v)/len(v))
     
     
     return t,x,v
@@ -102,10 +104,13 @@ def sykloide(filnavn):
     for i in range(2, len(x) - 2): 
         #v.append(np.divide((x[i + 1]-x[i-1]),(t[i + 1]-t[i-1])))
         v.append((1*x[i-2]-8*x[i-1]+0*x[i+0]+8*x[i+1]-1*x[i+2])/(12*1.0*(t[i+1]-t[i])**1))
-        #print(v)
+    print(sum(v)/len(v))
 
     return t,x,v
 
+sykloide("sykloide/take1.txt") 
+skrplan("skrplan/take1.txt")
+sirkel("sirkelfragment/take1.txt")
 
 def plot_all_x():
     t, x, v = sirkel("sirkelfragment/take1.txt")
@@ -116,7 +121,7 @@ def plot_all_x():
     plt.plot(t, x2) #skråplan
     plt.xlabel('tid t[s]')
     plt.ylabel('strekning s[m]')
-    plt.title("Posisjon og tid")
+    plt.title("Posisjon x[m]")
     plt.legend(['Sirkelfrag', 'Sykloide', 'Skråplan'], loc='upper left')
     plt.grid()
     plt.show()
@@ -128,14 +133,14 @@ def plot_all_v():
     plt.plot(t[:-14], v)
     plt.plot(t[:-12], v1)
     plt.plot(t[:-4], v2)
-    plt.title("Hastighet og tid")
+    plt.title("Hastighet v[m/s]")
     plt.xlabel('tid t [s]')
     plt.ylabel('hastighet s[m]')
     plt.legend(['Sirkelfrag', 'Sykloide', 'Skråplan'], loc='upper left')
     plt.grid()
     plt.show()
 
-plot_all_x()
+#plot_all_x()
 #plot_all_v() 
 
 #TID MOT POSISJON

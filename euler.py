@@ -1,6 +1,7 @@
 
 import numpy as np
 import sirkelfrag
+from statistics import mean 
 
 takes = sirkelfrag.main()
 result = []
@@ -25,6 +26,7 @@ for i in range (0,9):
         v[n+1] = v[n] + a * dt 
 
     result.append([s[-1], v[-1]])
+    
 
 for res in result: 
     print("Strekning: ", res[0], "\t Fart: ",res[1])
