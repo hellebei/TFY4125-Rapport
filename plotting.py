@@ -119,10 +119,23 @@ def main():
 	frik_sir = frik_sir[:58]
 	norm_sir = norm_sir[:58]
 
+
+
+	plt.xlabel("$x$ [m]", fontsize=18)
+	plt.ylabel("$f$ [N]", fontsize=18)
+
+	plt.title("Friksjon f[N] for kulen", fontsize=20)
+	plt.ylim(-0.15, 0.15)  # adjust the top leaving bottom unchanged
+	#plt.ylim(bottom=-1)
+	plt.grid()
+	plt.plot(x_num_sir, frik_sir,x_num_sir, frik_syk, x_num_sir, frik_skr )
+	plt.legend(['Sirkelfrag',  'Sykloide','Skraplan'], loc='upper left')
+	plt.show()
+
 	# Plot the linear velocity 
-	plt.xlabel("$t$ [s]")
-	plt.ylabel("$v$ [m/s]")
-	plt.title("Banefart v[m/s] for kule")
+	plt.xlabel("$t$ [s]", fontsize=18)
+	plt.ylabel("$v$ [m/s]", fontsize=18)
+	plt.title("Banefart v[m/s] for kule", fontsize=20)
 	plt.grid()
 	plt.plot(t_num, v_num_sir, t_num, v_num_syk, t_num, v_num_skr)
 	plt.legend(['Sirkelfrag', 'Sykloide','Skraplan'], loc='upper left')
@@ -130,26 +143,16 @@ def main():
 	plt.show()
 
 	# plot s(t)
-	plt.xlabel("$t$ [s]")
-	plt.ylabel("$s$ [m]")
-	plt.title("Posisjon x[m] for kule")
+	plt.xlabel("$t$ [s]", fontsize=18)
+	plt.ylabel("$s$ [m]", fontsize=18)
+	plt.title("Posisjon x[m] for kule", fontsize=20)
 	plt.grid()
 
 	plt.plot(t_num, arc_length(x_num_sir, y_num_sir), t_num, arc_length(x_num_syk, y_num_syk), t_num, arc_length(x_num_skr, y_num_skr))
 	plt.legend(['Sirkelfrag','Sykloide', 'Skraplan'], loc='upper left')
 	plt.show()
 
-"""
-	# plot friksjon
-	plt.xlabel("$x$ [m]")
-	plt.ylabel("$f$ [N]")
 
-	plt.title("Friksjon f[N] for kulen")
-	plt.ylim(top=1)  # adjust the top leaving bottom unchanged
-	plt.ylim(bottom=-1)
-	plt.grid()
-	plt.plot(x_num_sir, frik_sir,x_num_sir, frik_syk, x_num_sir, frik_skr )
-	plt.legend(['Sirkelfrag',  'Sykloide','Skraplan'], loc='upper left')
-	plt.show()
-"""
+
+
 main()
