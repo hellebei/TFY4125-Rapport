@@ -52,13 +52,9 @@ def get_result(eksperiment):
                 tt = tt + dt
                 detailed_result_take1.append([s_rn, v_nr, tt])
 
-<<<<<<< HEAD
-    result.append([s[-1], v[-1]])
-    
-=======
+
         result.append([s[-1], v[-1]])
     return result, detailed_result_take1
->>>>>>> master
 
 def print_res(result):
     for res in result: 
