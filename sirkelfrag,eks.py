@@ -119,8 +119,8 @@ def plot_all_x():
     plt.plot(t[:-5], x) #sirkelfragment
     plt.plot(t[:-3], x1) #sykloide
     plt.plot(t, x2) #skråplan
-    plt.xlabel('tid t[s]', fontsize=18)
-    plt.ylabel('strekning s[m]', fontsize=18)
+    plt.xlabel('$t$ [s]', fontsize=18)
+    plt.ylabel("$s$ [m]", fontsize=18)
     plt.title("Posisjon x[m]", fontsize=20)
     plt.legend(['Sirkelfrag', 'Sykloide', 'Skråplan'], loc='upper left')
     plt.grid()
@@ -134,8 +134,8 @@ def plot_all_v():
     plt.plot(t[:-12], v1)
     plt.plot(t[:-4], v2)
     plt.title("Hastighet v[m/s]", fontsize=20)
-    plt.xlabel('tid t [s]', fontsize=18)
-    plt.ylabel('hastighet s[m]', fontsize=18)
+    plt.xlabel('$t$ [s]', fontsize=18)
+    plt.ylabel("$s$ [m]", fontsize=18)
     plt.legend(['Sirkelfrag', 'Sykloide', 'Skråplan'], loc='upper left')
     plt.grid()
     plt.show()
