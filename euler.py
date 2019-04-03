@@ -1,12 +1,9 @@
 
 import numpy as np
 import sirkelfrag
-<<<<<<< HEAD
-from statistics import mean 
-=======
+
 import rettlinje
 import sykloide
->>>>>>> master
 
 def get_startpos(eksperiment):
     startpos = []
