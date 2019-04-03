@@ -124,7 +124,7 @@ def main():
 	plt.xlabel("$x$ [m]", fontsize=18)
 	plt.ylabel("$f$ [N]", fontsize=18)
 
-	plt.title("Friksjon f[N] for kulen", fontsize=20)
+	plt.title("Friksjon f[N]", fontsize=20)
 	plt.ylim(-0.15, 0.15)  # adjust the top leaving bottom unchanged
 	#plt.ylim(bottom=-1)
 	plt.grid()
@@ -135,7 +135,7 @@ def main():
 	# Plot the linear velocity 
 	plt.xlabel("$t$ [s]", fontsize=18)
 	plt.ylabel("$v$ [m/s]", fontsize=18)
-	plt.title("Banefart v[m/s] for kule", fontsize=20)
+	plt.title("Hastighet v[m/s]", fontsize=20)
 	plt.grid()
 	plt.plot(t_num, v_num_sir, t_num, v_num_syk, t_num, v_num_skr)
 	plt.legend(['Sirkelfrag', 'Sykloide','Skraplan'], loc='upper left')
@@ -145,7 +145,7 @@ def main():
 	# plot s(t)
 	plt.xlabel("$t$ [s]", fontsize=18)
 	plt.ylabel("$s$ [m]", fontsize=18)
-	plt.title("Posisjon x[m] for kule", fontsize=20)
+	plt.title("Posisjon x[m]", fontsize=20)
 	plt.grid()
 
 	plt.plot(t_num, arc_length(x_num_sir, y_num_sir), t_num, arc_length(x_num_syk, y_num_syk), t_num, arc_length(x_num_skr, y_num_skr))
