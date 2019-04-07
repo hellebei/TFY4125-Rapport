@@ -5,6 +5,8 @@ import sirkelfrag
 import rettlinje
 import sykloide
 
+import eksgrafer
+
 def plot_veloc_graph(eksp):
 
     t = []
@@ -29,6 +31,7 @@ def plot_dist_graph(eksp):
         t.append(time)
     return t, s
 
+
 def plot_all_vel():
     t, vs = plot_veloc_graph(sirkelfrag)
     t, vr = plot_veloc_graph(rettlinje)
@@ -41,17 +44,26 @@ def plot_all_vel():
     plt.grid()
     plt.show()
 
+
 def plot_all_dist():
     t, ss = plot_dist_graph(sirkelfrag)
     t, sr = plot_dist_graph(rettlinje)
     t, ssy = plot_dist_graph(sykloide)
-    plt.plot(t, ss, t, ssy, t, sr)
+    #t, x, v = eksgrafer.sirkel("sirkelfragment/take1.txt")
+    t, x1, v1 = eksgrafer.sykloide("sykloide/take1.txt")
+    #t, x2, v2 = eksgrafer.skrplan("skrplan/take1.txt")
+    plt.plot(t, ss, t, sr, t, ssy)
+    #plt.plot(t[:-5], x) #sirkelfragment
+    plt.plot(t, x1) #sykloide
+    #plt.plot(t, x2) #skråplan
     plt.title("Posisjon og tid")
     plt.xlabel('tid t[s]')
     plt.ylabel('strekning s[m]')
-    plt.legend(['Sirkelfragment', 'Sykloide', 'Skråplan'], loc='upper left')
+    plt.legend(['Sirkelfragment', 'Sykloide', 'Skråplan', 'Skråplan'], loc='upper left')
     plt.grid()
     plt.show()
+
+
 
 #plot_veloc_graph(sirkelfrag)
 #plot_veloc_graph(rettlinje)

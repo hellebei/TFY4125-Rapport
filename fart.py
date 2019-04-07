@@ -1,12 +1,10 @@
-
-#Eksperimentelt: s = roten av xˆ2 + yˆ2
-#Så plotte s mot t
-#Han sa at vi heller kunne plotte x mot t for at det skulle være enklere å se hvilken bane det var. 
-# v = (x1-x0)/delta(t), men dette ble ikke så bra, så brukte http://web.media.mit.edu/~crtaylor/calculator.html for å få finere plot.
-
 import numpy as np 
 from matplotlib import pyplot as plt
 
+import euler
+import sirkelfrag
+import rettlinje
+import sykloide  
 
 def sirkel(filnavn): 
     f = open(filnavn ,"r")
@@ -108,23 +106,10 @@ def sykloide(filnavn):
 
     return t,x,v
 
-sykloide("sykloide/take1.txt") 
-skrplan("skrplan/take1.txt")
-sirkel("sirkelfragment/take1.txt")
+#sykloide("sykloide/take1.txt") 
+#skrplan("skrplan/take1.txt")
+#sirkel("sirkelfragment/take1.txt")
 
-def plot_all_x():
-    t, x, v = sirkel("sirkelfragment/take1.txt")
-    t, x1, v1 = sykloide("sykloide/take1.txt")
-    t, x2, v2 = skrplan("skrplan/take1.txt")
-    plt.plot(t[:-5], x) #sirkelfragment
-    plt.plot(t[:-3], x1) #sykloide
-    plt.plot(t, x2) #skråplan
-    plt.xlabel('$t$ [s]', fontsize=18)
-    plt.ylabel("$s$ [m]", fontsize=18)
-    plt.title("Posisjon x[m]", fontsize=20)
-    plt.legend(['Sirkelfrag', 'Sykloide', 'Skråplan'], loc='upper left')
-    plt.grid()
-    plt.show()
 
 def plot_all_v():
     t, x, v = sirkel("sirkelfragment/take1.txt")
@@ -140,27 +125,79 @@ def plot_all_v():
     plt.grid()
     plt.show()
 
+def plot_veloc_graph(eksp):
+
+    t = []
+    v = []
+    results = euler.get_result(eksp)[1]
+    for item in results: 
+        veloc = item[1]
+        time = item[2]
+        v.append(veloc)
+        t.append(time)
+    return t, v
+
+def plot_dist_graph(eksp):
+    
+    t = []
+    s = []
+    results = euler.get_result(eksp)[1]
+    for item in results: 
+        strekn = item[0]
+        time = item[2]
+        s.append(strekn)
+        t.append(time)
+    return t, s
+
+def plot_all_vel():
+    t, vs = plot_veloc_graph(sirkelfrag)
+    t, vr = plot_veloc_graph(rettlinje)
+    t, vsy = plot_veloc_graph(sykloide)
+    plt.plot(t, vs, t, vsy, t, vr)
+    plt.title("Hastighet og tid")
+    plt.xlabel('tid t[s]')
+    plt.ylabel('hastighet v[m/s]')
+    plt.legend(['Sirkelfragment', 'Sykloide', 'Skråplan'], loc='upper left')
+    plt.grid()
+    plt.show()
+
+def plot_all_dist():
+    t, ss = plot_dist_graph(sirkelfrag)
+    t, sr = plot_dist_graph(rettlinje)
+    t, ssy = plot_dist_graph(sykloide)
+    plt.plot(t, ss, t, ssy, t, sr)
+    plt.title("Posisjon og tid")
+    plt.xlabel('tid t[s]')
+    plt.ylabel('strekning s[m]')
+    plt.legend(['Sirkelfragment', 'Sykloide', 'Skråplan'], loc='upper left')
+    plt.grid()
+    plt.show()
+
+#plot_veloc_graph(sirkelfrag)
+#plot_veloc_graph(rettlinje)
+#plot_veloc_graph(sykloide)
+#plot_dist_graph(sirkelfrag)
+#plot_dist_graph(rettlinje)
+#plot_dist_graph(sykloide)
+#plot_all_dist()
+#plot_all_vel()
+
+def plot_all_x():
+    t, x, v = sirkel("sirkelfragment/take1.txt")
+    t, x1, v1 = sykloide("sykloide/take1.txt")
+    t, x2, v2 = skrplan("skrplan/take1.txt")
+    t, ss = plot_dist_graph(sirkelfrag)
+    #t, sr = plot_dist_graph(rettlinje)
+    #t, ssy = plot_dist_graph(sykloide)
+    plt.plot(t[:-5], x) #sirkelfragment
+    plt.plot(t[:-3], x1) #sykloide
+    plt.plot(t, x2) #skråplan
+    plt.plot(t, ss)
+    plt.xlabel('$t$ [s]', fontsize=18)
+    plt.ylabel("$s$ [m]", fontsize=18)
+    plt.title("Posisjon x[m]", fontsize=20)
+    plt.legend(['Sirkelfrag', 'Sykloide', 'Skråplan'], loc='upper left')
+    plt.grid()
+    plt.show()
+
 plot_all_x()
-plot_all_v() 
-
-#TID MOT POSISJON
-#plt.plot(t, s)
-#plt.plot(t, x)
-#plt.xlabel(r'$tid t [s]$')
-#plt.ylabel(r'$posisjon x [m]$')
-#plt.title("Sirkelfragment")
-#plt.plot(t, x, t, y, x, y)
-#plt.grid()
-#plt.show()
-
-
-"""
-#TID MOR FART 
-plt.plot(t[:-4], v)
-plt.xlabel(r'$tid t [s]$')
-plt.ylabel(r'$fart v [m/s]$')
-plt.title("Sirkelfragment")
-#plt.plot(t, x, t, y, x, y)
-plt.grid()
-plt.show()
-"""
