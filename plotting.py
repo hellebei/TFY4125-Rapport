@@ -1,6 +1,7 @@
 import numpy as np
 from numpy.linalg import norm
 from matplotlib import pyplot as plt
+import eksgrafer
 
 k_kule = 2/5
 k_btb = 2/3
@@ -121,6 +122,25 @@ def main():
 
 
 
+	t, x, v = eksgrafer.sirkel("sirkelfragment/take1.txt")
+	t, x1, v1 = eksgrafer.sykloide("sykloide/take1.txt")
+	t, x2, v2 = eksgrafer.skrplan("skrplan/take1.txt")
+
+
+	# Plot the linear velocity 
+	plt.xlabel("$t$ [s]", fontsize=18)
+	plt.ylabel("$v$ [m/s]", fontsize=18)
+	plt.title("Hastighet v[m/s]", fontsize=20)
+	plt.grid()
+	plt.plot(t_num[:54], v_num_sir[:54], t_num[:54], v_num_syk[:54], t_num[:54], v_num_skr[:54])
+	plt.plot(t[:54], v[:54]) #sirkelfragment
+	plt.plot(t[:54], v1[:54]) #sykloide
+	plt.plot(t[:54], v2[:54]) #skråplan
+	plt.legend(['Sirkelfrag-Numerisk', 'Sykloide-Numerisk','Skraplan-Numerisk', 'Sirkelfrag-Eksperimentelt', 'Sykloide-Eksperimentelt','Skraplan-Eksperimentelt'], loc='upper left')
+	plt.figure()
+	plt.show()
+
+
 	plt.xlabel("$x$ [m]", fontsize=18)
 	plt.ylabel("$f$ [N]", fontsize=18)
 
@@ -132,24 +152,17 @@ def main():
 	plt.legend(['Sirkelfrag',  'Sykloide','Skraplan'], loc='upper left')
 	plt.show()
 
-	# Plot the linear velocity 
-	plt.xlabel("$t$ [s]", fontsize=18)
-	plt.ylabel("$v$ [m/s]", fontsize=18)
-	plt.title("Hastighet v[m/s]", fontsize=20)
-	plt.grid()
-	plt.plot(t_num, v_num_sir, t_num, v_num_syk, t_num, v_num_skr)
-	plt.legend(['Sirkelfrag', 'Sykloide','Skraplan'], loc='upper left')
-	plt.figure()
-	plt.show()
 
 	# plot s(t)
 	plt.xlabel("$t$ [s]", fontsize=18)
 	plt.ylabel("$s$ [m]", fontsize=18)
 	plt.title("Posisjon x[m]", fontsize=20)
 	plt.grid()
-
 	plt.plot(t_num, arc_length(x_num_sir, y_num_sir), t_num, arc_length(x_num_syk, y_num_syk), t_num, arc_length(x_num_skr, y_num_skr))
-	plt.legend(['Sirkelfrag','Sykloide', 'Skraplan'], loc='upper left')
+	plt.plot(t[:58], x[:58]) #sirkelfragment
+	plt.plot(t[:58], x1[:58]) #sykloide
+	plt.plot(t[:58], x2[:58]) #skråplan
+	plt.legend(['Sirkelfrag-Numerisk', 'Sykloide-Numerisk','Skraplan-Numerisk', 'Sirkelfrag-Eksperimentelt', 'Sykloide-Eksperimentelt','Skraplan-Eksperimentelt'], loc='upper left')
 	plt.show()
 
 
